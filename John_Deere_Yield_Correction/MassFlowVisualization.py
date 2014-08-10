@@ -1,6 +1,8 @@
-from MassFlowGraphGenerator import showVisual
-from plotLive import plotLive
+from graphGenerator_helper import showVisual
+import livePlotting_helper
 import sys
+
+filename = raw_input('Enter a file name: ')
 
 print "Please choose combine type (acceptable input: 1,2,3 or 0 for all 3 combine"
 
@@ -24,7 +26,7 @@ print "Would you like to see the path of the combine live? Please enter 1 for Ye
 live = int(raw_input("Plot Live: "))
 
 # function call to visualize massflow map, path, sample points, 
-showVisual(int(combine_Type), int(sample_Length), int(num_Degree))
+showVisual(int(combine_Type), int(sample_Length), int(num_Degree), filename)
 
 if live == 1:
 	plotLive(int(combine_Type))
