@@ -2,7 +2,7 @@ University of Illinois/NCSA Open Source License
 Copyright (c) <2014> <University of Illinois> 
 All rights reserved.
 
-Developed by: 		<Mariko Wakabayashi, Naveen Arivazhagan, Ronit Chakraborty>
+Developed by: 		<Mariko Wakabayashi, Eric Gene Shaffer, Naveen Arivazhagan, Ronit Chakraborty>
                       	<University of Illinois>
                         <https://github.com/shaffer1/Deere-Data-Analytics/University of Illinois>
 
