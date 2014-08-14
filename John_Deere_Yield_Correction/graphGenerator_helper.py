@@ -8,21 +8,21 @@ from scipy import interpolate
 from extractPoints_helper import *
 
 
-def showVisual(combine_Type, sample_Length, num_Degree, filename):
+def showVisual(combine_Type, combine_Name, lat_Name, long_Name, massFlow_Name, sample_Length, num_Degree, filename):
 	data = pd.read_csv(filename)
 
-	if combine_Type != 0 :
+	if combine_Type != 0:
 
-		comb_df = data[data['Combine'] == combine_Type]
-		lat_df = comb_df['GPSLatitude_SF']
-		lon_df = comb_df['GPSLongitude_SF']
-		y = comb_df['GSMassFlow']
+		comb_df = data[data[combine_Name] == combine_Type]
+		lat_df = comb_df[lat_Name]
+		lon_df = comb_df[long_Name]
+		y = comb_df[massFlow_Name]
 
 	else:
 
-		lat_df = data['GPSLatitude_SF']
-		lon_df = data['GPSLongitude_SF']
-		y = data['GSMassFlow']
+		lat_df = data[lat_Name]
+		lon_df = data[long_Name]
+		y = data[massFlow_Name]
 
 	e,n = convertToUTM(lat_df, lon_df)
 
@@ -101,7 +101,7 @@ def showVisual(combine_Type, sample_Length, num_Degree, filename):
 	plt.axis([0,sample_Length+10,0,35])
 	plt.plot(xdata, ydata, 'o')
 	plt.plot(xs, ys)
-	plt.ylabel('y (mass flow)')
+	plt.ylabel('y (Mass flow)')
 	plt.xlabel('x (Length of sample points)')
 	plt.show()
 

@@ -7,21 +7,21 @@ import scipy
 import sys, csv
 from extractPoints_helper import convertToUTM
 
-def plotLive(combine_Type):
-    Broghammer = pd.read_csv('Broghammer Farm South Delay Mapping.csv')
+def plotLive(combine_Type, combine_Name, lat_Name, long_Name, massFlow_Name, filename):
+    data = pd.read_csv(filename)
 
-    if combine_Type != 0 :
+    if combine_Type != 0:
 
-        comb_df = Broghammer[Broghammer['Combine'] == combine_Type]
-        lat_df = comb_df['GPSLatitude_SF']
-        lon_df = comb_df['GPSLongitude_SF']
-        y = comb_df['GSMassFlow']
+        comb_df = data[data[combine_Name] == combine_Type]
+        lat_df = comb_df[lat_Name]
+        lon_df = comb_df[long_Name]
+        y = comb_df[massFlow_Name]
 
     else:
 
-        lat_df = Broghammer['GPSLatitude_SF']
-        lon_df = Broghammer['GPSLongitude_SF']
-        y = Broghammer['GSMassFlow']
+        lat_df = data[lat_Name]
+        lon_df = data[long_Name]
+        y = data[massFlow_Name]
 
     e,n = convertToUTM(lat_df, lon_df)
 
