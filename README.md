@@ -1,4 +1,4 @@
-Deere-Data-Analytics
+YieldMap-Data-Analytics
 ====================
 
 Required Python Version: Python 2.7.7 
